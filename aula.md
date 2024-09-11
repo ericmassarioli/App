@@ -17,7 +17,16 @@ Sequencia de passos lógicos e finita para resolver problemas
 
 - String - são escritas
 - Number - numeros
+- boolean - true or false
 - function
+- Variaveis locais e globais
 
-let permite que a variavel pode mudar o valor
-const não permite que o valor da variavel mude
+- let permite que a variavel pode mudar o valor
+- const não permite que o valor da variavel mude
+- operador + pode ser usado como concatenação
+
+## objetos
+
+- [X] atributos e metodos
+- [X] Criação e manipulação de dados
+- [x] Criar dados
