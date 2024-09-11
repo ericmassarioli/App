@@ -9,21 +9,25 @@ const mensagem = "ola eu"
 
 //array, objstos
 
-let metas = ["Eric", "Alo"]
 
-console.log(metas[1] + " " + metas[0]);
 
 let meta = {
         value: 'ler um livro por mês',
         checked: false
 };
 
-console.log(meta.value);
- meta.value = "ler mais de um livro"
+let metas = [
+    meta,
+    {
+        value: "Correr 20 minutos",
+        checked: false
+    }
+]
+
 
 // function // arrow function
 const criarmeta = (numero) => {
 console.log(2 + numero);
 }
 
-criarmeta(4);
+console.log(metas[1].value);
