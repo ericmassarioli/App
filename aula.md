@@ -38,3 +38,7 @@ Sequencia de passos lógicos e finita para resolver problemas
 
 ## condicionais
 switch
+
+## modulos en node.js
+- [X] importação de mósulos (require, CommonJS)
+- [X] biblioteca 'inquire' para criar prompts interativos
