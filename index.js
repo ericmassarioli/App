@@ -21,11 +21,25 @@ const cadastrarMeta = async () => {
 }
 
 const listarMetas = async () => {
-    const resposta = await checkbox({
-        message: "Use as setas para mudar de meta, o espaço para marcar eou desmarcar e o Enter para finalizar essa etapa",
+    const respostas = await checkbox({
+        message: "Use as setas para mudar de meta, o espaço para marcar e ou desmarcar e o Enter para finalizar essa etapa",
         choices: [...metas]
     })
 
+    if (respostas.length == 0) {
+        console.log("Nenhuma meta selecionada")
+        return
+    }
+    // forEach é para cada um
+    respostas.forEach((resposta) => {
+        const meta = metas.find((m) => {
+            return m.value == resposta
+        })
+
+        meta.checked = true
+    })
+
+    console.log("Metas finalizadas")
 }
 // sempre que usamos o await na função temos que usar o async
 // assincrona é porque as informações podem aguardar uma resposta por exemplo 

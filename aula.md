@@ -52,3 +52,5 @@ if/else
 ## Operadores de comparação
 
 - [X] operadores de comparação: == != >= 
+
+##
