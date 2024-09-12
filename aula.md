@@ -30,3 +30,7 @@ Sequencia de passos lógicos e finita para resolver problemas
 - [X] atributos e metodos
 - [X] Criação e manipulação de dados
 - [x] Criar dados
+
+## estruturas de repetição
+
+- While
