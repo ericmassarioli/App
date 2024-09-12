@@ -26,10 +26,14 @@ const listarMetas = async () => {
         choices: [...metas]
     })
 
-    if (respostas.length == 0) {
+    /*if (respostas.length == 0) {
         console.log("Nenhuma meta selecionada")
         return
-    }
+    }*/
+
+    metas.forEach((m)=>{
+         m.checked = false
+    })
     // forEach é para cada um
     respostas.forEach((resposta) => {
         const meta = metas.find((m) => {
@@ -39,7 +43,7 @@ const listarMetas = async () => {
         meta.checked = true
     })
 
-    console.log("Metas finalizadas")
+    console.log("Metas marcadas como concluidas")
 }
 // sempre que usamos o await na função temos que usar o async
 // assincrona é porque as informações podem aguardar uma resposta por exemplo 
@@ -70,7 +74,6 @@ const start = async() => {
         switch(option) {
             case "cadastrar":
                 await cadastrarMeta()
-                console.log(metas)
                 break
             case "listar":
                 await listarMetas()
