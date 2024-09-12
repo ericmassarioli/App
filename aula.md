@@ -34,3 +34,7 @@ Sequencia de passos lógicos e finita para resolver problemas
 ## estruturas de repetição
 
 - While
+
+
+## condicionais
+switch
