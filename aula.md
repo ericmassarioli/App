@@ -42,3 +42,8 @@ switch
 ## modulos en node.js
 - [X] importação de mósulos (require, CommonJS)
 - [X] biblioteca 'inquire' para criar prompts interativos
+
+
+## Programação assincrona e promises
+
+- [X] uso de funções assincronas (async/await)
