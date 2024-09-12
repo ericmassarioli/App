@@ -38,6 +38,7 @@ Sequencia de passos lógicos e finita para resolver problemas
 
 ## condicionais
 switch
+if/else
 
 ## modulos en node.js
 - [X] importação de mósulos (require, CommonJS)
@@ -47,3 +48,7 @@ switch
 ## Programação assincrona e promises
 
 - [X] uso de funções assincronas (async/await)
+
+## Operadores de comparação
+
+- [X] operadores de comparação: == != >= 
