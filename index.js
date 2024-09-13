@@ -45,6 +45,22 @@ const listarMetas = async () => {
 
     console.log("Metas marcadas como concluidas")
 }
+
+const metasRealizadas = async () => {
+    const realizadas = metas.filter((meta) => {
+        return meta.checked
+    })
+
+    if(realizadas.length ==0){
+        console.log("Não existem metas realizadas :(")
+        return
+    }
+
+    await select({
+        message: "Metas Realizadas",
+        choices: [...realizadas]
+    })
+}
 // sempre que usamos o await na função temos que usar o async
 // assincrona é porque as informações podem aguardar uma resposta por exemplo 
 const start = async() => {
@@ -65,6 +81,10 @@ const start = async() => {
                     value: "listar"
                 },
                 {
+                    name: "Metas realizadas",
+                    value: "realizadas"
+                },
+                {
                     name: "Sair",
                     value: "sair"
                 }
@@ -77,6 +97,9 @@ const start = async() => {
                 break
             case "listar":
                 await listarMetas()
+                break
+            case "realizadas":
+                await metasRealizadas()
                 break
             case "sair":
                 console.log("Até a próxima!")

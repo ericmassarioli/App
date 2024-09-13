@@ -31,6 +31,10 @@ Sequencia de passos lógicos e finita para resolver problemas
 - [X] Criação e manipulação de dados
 - [x] Criar dados
 
+## Arrays
+- [X] Lista que contém qq tipo de dados
+- [x] Metodos de array: push, [find, foreach, filter] : HOF (higher order function)
+
 ## estruturas de repetição
 
 - While
@@ -52,5 +56,6 @@ if/else
 ## Operadores de comparação
 
 - [X] operadores de comparação: == != >= 
+- [x] spread operator: ...
 
-##
+## metodos de array
