@@ -1,12 +1,22 @@
 const { select, input , checkbox} = require('@inquirer/prompts')
+const fs = require("fs").promises
+
 let mensagem = "Bem vindo ao app de metas";
 
-let meta = {
-    value: "Tomar 3L de água por dia",
-    checked: false
-}
 
-let metas = [meta]
+let metas 
+
+const carregarMetas = async () => {
+    try {
+        const dados = await fs.readFile("metas.json", "utf-8")
+        metas = JSON.parse(dados)
+    }
+    catch(erro){}
+    }
+
+const salvarMetas = async () => {
+    await fs.writeFile("metas.json", JSON.stringify(metas, null, 2))
+}
 
 const cadastrarMeta = async () => {
     const meta = await input({ message: "Digite a meta:"})
@@ -120,9 +130,10 @@ const mostrarMensagem = () => {
 // sempre que usamos o await na função temos que usar o async
 // assincrona é porque as informações podem aguardar uma resposta por exemplo 
 const start = async() => {
-    let count = 0
+    await carregarMetas()
     while(true){
-        mostrarMensagem()
+       mostrarMensagem()
+       await salvarMetas()
         // await faz esperar a selecao do usuario
         // await é uma promessa - que deve voltar uma resposta
         const option = await select({
@@ -168,9 +179,9 @@ const start = async() => {
             case "abertas":
                 await metasAbertas()
                 break
-                case "deletar":
-                    await deletarMetas()
-                    break
+            case "deletar":
+                await deletarMetas()
+                break
             case "sair":
                 console.log("Até a próxima!")
                 return
