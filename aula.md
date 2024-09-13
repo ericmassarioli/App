@@ -47,6 +47,7 @@ if/else
 ## modulos en node.js
 - [X] importação de mósulos (require, CommonJS)
 - [X] biblioteca 'inquire' para criar prompts interativos
+- [x] FS (file system)
 
 
 ## Programação assincrona e promises
@@ -60,6 +61,11 @@ if/else
 
 ## metodos de array
 
+
+## JSOn
+- [x] Javascript Object Notation
+- [x] Json.parse() - transforma de JSON para JS
+- [x] JSON.stringfy() - transforma de JS para JSON
 
 
 - Sistema de mensagem

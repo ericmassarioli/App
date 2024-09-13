@@ -34,6 +34,11 @@ const cadastrarMeta = async () => {
 }
 
 const listarMetas = async () => {
+    if (metas.length == 0){
+        mensagem = "Nenhuma meta cadastrada"
+        return
+    }
+
     const respostas = await checkbox({
         message: "Use as setas para mudar de meta, o espaço para marcar e ou desmarcar e o Enter para finalizar essa etapa",
         choices: [...metas],
@@ -62,6 +67,12 @@ const listarMetas = async () => {
 }
 
 const metasRealizadas = async () => {
+
+    if (metas.length == 0){
+        mensagem = "Nenhuma meta cadastrada"
+        return
+    }
+
     const realizadas = metas.filter((meta) => {
         return meta.checked
     })
@@ -78,6 +89,12 @@ const metasRealizadas = async () => {
 }
 
 const metasAbertas = async () => {
+
+    if (metas.length == 0){
+        mensagem = "Nenhuma meta cadastrada"
+        return
+    }
+
     const abertas = metas.filter((meta) => {
         return !meta.checked // poderia ser meta.checked != true 
     })
@@ -94,6 +111,11 @@ const metasAbertas = async () => {
 }
 
 const deletarMetas = async() => {
+    if (metas.length == 0){
+        mensagem = "Nenhuma meta cadastrada"
+        return
+    }
+    
     const metasDesmarcadas = metas.map((meta) => {
         return {value: meta.value, checked: false}
     })
@@ -137,6 +159,7 @@ const start = async() => {
         // await faz esperar a selecao do usuario
         // await é uma promessa - que deve voltar uma resposta
         const option = await select({
+          
             message: "Menu >",
             choices: [
                 {
