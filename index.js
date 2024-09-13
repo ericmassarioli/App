@@ -23,7 +23,8 @@ const cadastrarMeta = async () => {
 const listarMetas = async () => {
     const respostas = await checkbox({
         message: "Use as setas para mudar de meta, o espaço para marcar e ou desmarcar e o Enter para finalizar essa etapa",
-        choices: [...metas]
+        choices: [...metas],
+        instructions: false,
     })
 
     metas.forEach((m)=>{
@@ -58,7 +59,7 @@ const metasRealizadas = async () => {
     }
 
     await select({
-        message: "Metas Realizadas " + realizadas.length,
+        message: "Metas Realizadas: " + realizadas.length,
         choices: [...realizadas]
     })
 }
@@ -74,10 +75,36 @@ const metasAbertas = async () => {
     }
 
     await select({
-        message: "Metas abertas " + abertas.length,
+        message: "Metas abertas: " + abertas.length,
         choices: [...abertas]
     })
 }
+
+const deletarMetas = async() => {
+    const metasDesmarcadas = metas.map((meta) => {
+        return {value: meta.value, checked: false}
+    })
+    
+    const deletar = await  checkbox({
+        message: "Selecione o item para deletar",
+        choices: [...metasDesmarcadas],
+        instructions: false,
+    })
+
+    if(deletar.length == 0){
+        console.log("Nenhum item para deletar")
+        return
+    }
+
+    deletar.forEach((item) => {
+        metas = metas.filter((meta) => {
+            return meta.value != item
+        })
+    })
+
+    console.log("Meta(s) deletada(s) con sucesso!")
+}
+
 // sempre que usamos o await na função temos que usar o async
 // assincrona é porque as informações podem aguardar uma resposta por exemplo 
 const start = async() => {
@@ -106,6 +133,10 @@ const start = async() => {
                     value: "abertas"
                 },
                 {
+                    name: "Deletar metas",
+                    value: "deletar"
+                },
+                {
                     name: "Sair",
                     value: "sair"
                 }
@@ -125,6 +156,9 @@ const start = async() => {
             case "abertas":
                 await metasAbertas()
                 break
+                case "deletar":
+                    await deletarMetas()
+                    break
             case "sair":
                 console.log("Até a próxima!")
                 return
